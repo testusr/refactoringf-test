@@ -50,3 +50,79 @@ public class MyBeanA {
         this.aLong = aLong;
     }
 }
+
+// should be converted to :
+//public record MyBeanA(
+//        String aString,
+//        boolean aBoolean,
+//        int aInt,
+//        long aLong) {
+//    public int aMethodWithoutParameters() {
+//        return aInt;
+//    }
+//
+//    public int aMethodWithParameters(int a, int b) {
+//        return a + b;
+//    }
+//
+//    public int aMethodWithInternalRefAndParameters(int a, int b) {
+//        return a + b + aInt;
+//    }
+//
+//    public Builder toBuilder() {
+//        return new Builder(this);
+//    }
+//
+//    public static Builder builder(){
+//        return new Builder();
+//    }
+//
+//    public static final class Builder {
+//        private String aString;
+//
+//        private boolean aBoolean;
+//
+//        private int aInt;
+//
+//        private long aLong;
+//
+//        private Builder() {
+//        }
+//
+//        private Builder(MyBeanA record) {
+//            this.aString = record.aString;
+//            this.aBoolean = record.aBoolean;
+//            this.aInt = record.aInt;
+//            this.aLong = record.aLong;
+//        }
+//
+//        public static Builder builder() {
+//            return new Builder();
+//        }
+//
+//        public Builder withAString(String aString) {
+//            this.aString = aString;
+//            return this;
+//        }
+//
+//        public Builder withABoolean(boolean aBoolean) {
+//            this.aBoolean = aBoolean;
+//            return this;
+//        }
+//
+//        public Builder withAInt(int aInt) {
+//            this.aInt = aInt;
+//            return this;
+//        }
+//
+//        public Builder withALong(long aLong) {
+//            this.aLong = aLong;
+//            return this;
+//        }
+//
+//        public MyBeanA build() {
+//            return new MyBeanA(this.aString, this.aBoolean, this.aInt, this.aLong);
+//        }
+//    }
+//}
+
