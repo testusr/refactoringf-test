@@ -32,6 +32,10 @@ public class ReferencingClassA {
 }
 
 // should be converted to:
+//package ssoft.dummy.refs;
+//
+//import ssoft.dummy.beans.MyBeanA;
+//
 //public class ReferencingClassA {
 //    public MyBeanA anotherBeanA = MyBeanA.builder().build();
 //    MyBeanA andAnotherBeanA = MyBeanA.builder().build();
@@ -58,7 +62,7 @@ public class ReferencingClassA {
 //                .build();
 //
 //        boolean myBoolean = this.myBeanA.aBoolean();
-//        this.myBeanA.aString();
+//        this.myBeanA.aString(); // Note: This line does nothing unless used
 //        printThisForMe(this.myBeanA.aLong());
 //
 //        return this.myBeanA;
@@ -67,5 +71,4 @@ public class ReferencingClassA {
 //    private void printThisForMe(long l) {
 //        System.out.println(l);
 //    }
-//
 //}

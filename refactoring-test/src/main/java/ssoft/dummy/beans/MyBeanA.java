@@ -52,11 +52,13 @@ public class MyBeanA {
 }
 
 // should be converted to :
-//public record MyBeanA(
-//        String aString,
-//        boolean aBoolean,
-//        int aInt,
-//        long aLong) {
+//package ssoft.dummy.beans;
+//
+//public record MyBeanA(String aString,
+//  boolean aBoolean,
+//  int aInt,
+//  long aLong) {
+//
 //    public int aMethodWithoutParameters() {
 //        return aInt;
 //    }
@@ -73,31 +75,23 @@ public class MyBeanA {
 //        return new Builder(this);
 //    }
 //
-//    public static Builder builder(){
+//    public static Builder builder() {
 //        return new Builder();
 //    }
 //
 //    public static final class Builder {
 //        private String aString;
-//
 //        private boolean aBoolean;
-//
 //        private int aInt;
-//
 //        private long aLong;
 //
-//        private Builder() {
-//        }
+//        private Builder() {}
 //
 //        private Builder(MyBeanA record) {
 //            this.aString = record.aString;
 //            this.aBoolean = record.aBoolean;
 //            this.aInt = record.aInt;
 //            this.aLong = record.aLong;
-//        }
-//
-//        public static Builder builder() {
-//            return new Builder();
 //        }
 //
 //        public Builder withAString(String aString) {
@@ -121,8 +115,7 @@ public class MyBeanA {
 //        }
 //
 //        public MyBeanA build() {
-//            return new MyBeanA(this.aString, this.aBoolean, this.aInt, this.aLong);
+//            return new MyBeanA(aString, aBoolean, aInt, aLong);
 //        }
 //    }
 //}
-
